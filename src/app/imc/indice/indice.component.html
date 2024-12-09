@@ -1,0 +1,32 @@
+<div class="container">
+<form #imcForm="ngForm" (ngSubmit)="remarques()">
+    <div class="mb-3">
+        <label for="taille"  class="form-label">taille</label>
+        <input min="1" required class="form-control" type="number" [(ngModel)]="taille" name="taille" id="taille" #ta="ngModel" placeholder="taille en m.">
+        <div *ngIf="ta.touched && ta.invalid " class="text-bg-danger p-3">
+            <span *ngIf="ta.errors?.['required']"> la taille est pbligatoire</span>
+            <span *ngIf="ta.errors?.['min']"> la taille minimale est 1 m</span>
+            
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="poids"  class="form-label">poids</label>
+        <input class="form-control" #po="ngModel" [(ngModel)]="poid" id="poids" name="poids" type="number" min="20" required="" placeholder="poids en KG">
+        <div *ngIf="po.touched && po.invalid " class="text-bg-danger p-3">
+            <span *ngIf="po.errors?.['required']"> le poids est pbligatoire</span>
+            <span *ngIf="po.errors?.['min']"> le poids minimum est 20kg</span>
+            
+        </div>
+    </div>
+    <div class="mb-3">
+    <button [disabled]="imcForm.invalid" class="btn btn-success">Calculer</button>
+    </div>
+    <br>
+    <div *ngIf="imc>0">
+        votre IMC est: {{imc}}
+
+    --{{remarque}} --
+</div>
+</form>
+
+</div>

@@ -1,0 +1,10 @@
+html,body
+{
+    height: 100%;
+    margin: 0;
+}
+.content
+{
+    min-height: calc(100vh,50px);
+    padding-bottom: 50px;
+}
